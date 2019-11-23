@@ -1,0 +1,32 @@
+﻿<Window x:Class="MovieList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieList"
+        xmlns:viewModel="clr-namespace:MovieList.ViewModel"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="800" DataContext="{Binding Source={x:Static viewModel:MovieViewModel.Instance}}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+   
+
+        <DataGrid ItemsSource="{Binding Movies}" x:Name="MovieGrid" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Movie Title" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" />
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Add Movie" Grid.Row="1" Click="Button_Click"  />
+    </Grid>
+</Window>

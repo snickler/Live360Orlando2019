@@ -1,0 +1,47 @@
+﻿<Window x:Class="MovieList.AddMovie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieList"
+        xmlns:xamlhost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
+        mc:Ignorable="d"
+        Title="Add Movie" Height="450" Width="800">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Content="Movie Title"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtMovieTitle" Width="300"/>
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="Genre"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Width="100" HorizontalAlignment="Left" Name="cboGenre">
+            <ComboBoxItem Content="Action"/>
+            <ComboBoxItem Content="Comedy"/>
+            <ComboBoxItem Content="Romance"/>
+            <ComboBoxItem Content="Historical"/>
+        </ComboBox>
+        <Label Grid.Row="2" Grid.Column="0" Content="Rating"/>
+        <!--<ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Name="cboRating">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox> -->
+        <xamlhost:WindowsXamlHost x:Name="cboRating"  InitialTypeName="Microsoft.UI.Xaml.Controls.RatingControl" Grid.Row="2" Grid.Column="1"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Date"/>
+        <!--<DatePicker Name="dtDate" Grid.Row="3" Grid.Column="1"/> -->
+        <xamlhost:WindowsXamlHost x:Name="dtDate" InitialTypeName="Windows.UI.Xaml.Controls.DatePicker" Grid.Row="3" Grid.Column="1"/>
+        <Button Content="Add" Grid.Row="4" Grid.Column="0" Width="100" Margin="5, 12, 0, 0" HorizontalAlignment="Left" Click="Button_Click" />
+    </Grid>
+</Window>
